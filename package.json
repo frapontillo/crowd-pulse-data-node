@@ -1,0 +1,26 @@
+{
+  "name": "crowd-pulse-data",
+  "version": "0.0.1",
+  "description": "Crowd Pulse Data Layer API for NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Francesco Pontillo <francescopontillo@gmail.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:frapontillo/crowd-pulse-data-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frapontillo/crowd-pulse-data-node/issues"
+  },
+  "dependencies": {
+    "kerberos": "0.0.17",
+    "lodash": "^3.10.1",
+    "mongoose": "^4.2.8",
+    "q": "^1.4.1",
+    "sanitize-filename": "^1.5.3"
+  }
+}
