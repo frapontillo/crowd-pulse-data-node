@@ -48,7 +48,7 @@ var buildSearchQuery = function(type, search) {
   if (type === 'tag') {
     queryOn = 'tags._id';
   } else if (type === 'token') {
-    queryOn = 'tags._id';
+    queryOn = 'tokens.text';
   } else if (type === 'category') {
     // categories are two levels nested
     queryOn = 'tags.categories.text';
