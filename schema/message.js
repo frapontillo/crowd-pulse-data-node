@@ -224,7 +224,7 @@ var sentimentProjection = {
     then: 'neuter',
     else: {
       $cond: {
-        if: {$eq: ['$_id', 1]},
+        if: {$gt: ['$_id', 0]},
         then: 'positive',
         else: 'negative'
       }
@@ -243,8 +243,25 @@ var buildStatSentimentQuery = function(type, terms, from, to) {
   }
 
   aggregations.push({
+    $project: {
+      _id: true,
+      normSentiment: {
+        $cond: {
+          if: {$eq: ['$sentiment', 0]},
+          then: 0,
+          else: {
+            $cond: {
+              if: {$gt: ['$sentiment', 0]},
+              then: 1,
+              else: -1
+            }
+          }
+        }
+      }
+    }
+  }, {
     $group: {
-      _id: '$sentiment',
+      _id: '$normSentiment',
       value: {
         $sum: 1
       }
